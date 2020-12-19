@@ -21,7 +21,7 @@ database_movs = {
                     "descripcion": "Almuerzo en Leños Steak",
                     "tipo": "Gasto"}),
     2: Movimiento(**{"id":2,
-                    "fecha": '2020-12-01',
+                    "fecha": '2020-12-04',
                     "valor": 20000,
                     "categoria": "Transporte",
                     "descripcion": "Taxi al trabajo",
@@ -78,3 +78,23 @@ def generar_id():
             nuevo_id = m
     nuevo_id += 1
     return nuevo_id
+
+#nuevo
+def consulta_movs():
+    lista_movs = []
+    for m in database_movs:
+        lista_movs.append(database_movs[m])  
+    return lista_movs
+
+def ordenar_por_fecha(lista_movs):
+    lista_ordenada = lista_movs.copy()
+    if len(lista_ordenada) == 1:
+        return lista_ordenada
+    else:
+        for m in range(1,len(lista_ordenada)):
+            if lista_ordenada[0].fecha > lista_ordenada[m].fecha:
+                t = lista_ordenada[m]
+                lista_ordenada[m] = lista_ordenada[0]
+                lista_ordenada[0] = t
+        lista_ordenada[1:len(lista_ordenada)] = ordenar_por_fecha(lista_ordenada[1:len(lista_ordenada)]).copy()           
+        return lista_ordenada
