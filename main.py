@@ -48,6 +48,11 @@ async def movimientos_por_id(id: int):
     raise HTTPException(status_code = 404, detail = "No se registra el movimiento.")
 
 
+@app.get("/usuario/mov")
+async def movimientos_por_usuario(user: str):
+    return db.movimientos_db.ordenar_por_fecha(db.movimientos_db.filtrar_por_usuario(user))
+
+
 #http://127.0.0.1:8000/categoria?categoria=Alimentos
 @app.get("/categoria")
 async def movimientos_por_categoria(categoria: str):
