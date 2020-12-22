@@ -16,7 +16,7 @@ async def detalles_de_usuario(user: str):
     raise HTTPException(status_code = 404, detail = "Username incorrecto")
 
 
-@router.post("/usuario/autenticar")
+@router.post("/autenticar")
 async def autenticacion_de_usuario(user_in: UserIn):
     if user_in.username in database_usuario:
         user_in_db = database_usuario[user_in.username]
