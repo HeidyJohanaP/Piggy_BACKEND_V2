@@ -21,7 +21,7 @@ origins = [
 "http://localhost", 
 "http://localhost:8080",
 "https://piggy-grow-frontend.herokuapp.com/",
-"https://piggy-grow-frontend.herokuapp.com/usuario/autenticar"
+"https://piggy-grow-frontend.herokuapp.com/autenticar"
 ]
 app.add_middleware(
 CORSMiddleware,
