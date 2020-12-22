@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException
 
-from routers.usuario_router     import router as router_usuario  
+from routers.usuario_router import router as router_usuario  
 from routers.movimientos_router import router as router_movimiento
 
 import datetime
@@ -13,6 +13,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
+
+app.include_router(router_usuario)
+app.include_router(router_movimiento)
 
 origins = [
 "http://localhost", 
