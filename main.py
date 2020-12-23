@@ -20,7 +20,7 @@ app.include_router(router_movimiento)
 origins = [
 "http://localhost", 
 "http://localhost:8080",
-"https://piggy-grow-frontend.herokuapp.com/",
+"https://piggy-grow-frontend.herokuapp.com",
 "https://piggy-grow-frontend.herokuapp.com/autenticar"
 ]
 app.add_middleware(
